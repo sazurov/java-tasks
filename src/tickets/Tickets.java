@@ -7,7 +7,7 @@ class Solution {
     private String getTicketFromUser () {
         Scanner ticket = new Scanner(System.in);
         System.out.print("Введите номер билета :");
-        return ticket.next();
+        return ticket.next(); 
     }
 
     public boolean calcTicketSum () {
