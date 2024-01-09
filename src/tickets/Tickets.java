@@ -4,13 +4,10 @@ import java.util.Scanner;
 
 class Solution {
 
-    public String getTicketFromUser () {
-        String res;
+    private String getTicketFromUser () {
         Scanner ticket = new Scanner(System.in);
         System.out.print("Введите номер билета :");
-        res = ticket.next();
-
-        return res;
+        return ticket.next();
     }
 
     public boolean calcTicketSum () {
