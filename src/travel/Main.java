@@ -28,7 +28,7 @@ class User {
        ArrayList<CurrencyCourse> countryCourses = country.getCourses();
 
        String currencyFromConvert = null;
-       double course = 0;
+       double course = 0; 
             
     for ( CurrencyCourse courses : countryCourses ) {
         if (courses.getName().contains(country.getCurrencyName())) {
