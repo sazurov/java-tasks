@@ -2,27 +2,20 @@ package fillArray;
 
 import java.text.DecimalFormat;
 import java.util.Arrays;
+import java.util.Random;
 
 class Solution {
-    private int random(int min, int max) {
-        max -= min;
-        return (int) (Math.random() * ++max) + min;
-    }
-
     public void fillArray (int[] arr) {
+        Random rnd = new Random();
         for (int i = 0 ; i < arr.length ; i++) {
-            int rnd = random(1 , 50);
-            arr[i] = rnd;
+            arr[i] = rnd.nextInt(50 + 1);
         }
     }
 
     public void fillArrayWithEvenNums(int[] arr) {
+        Random rnd = new Random();
         for (int i = 0; i < arr.length; i++) {
-            int rnd;
-            do {
-                rnd = random(0, 20);
-            } while (rnd % 2 != 0);
-            arr[i] = rnd;
+            arr[i] = rnd.nextInt(25) * 2;
         }
     }
 
@@ -46,7 +39,7 @@ class Solution {
         if (arr == null || arr.length == 0) {
             throw new IllegalArgumentException("Invalid Array!");
         }
-        int sum = Arrays.stream(arr).reduce(0, (a, b) -> a + b);
+        int sum = Arrays.stream(arr).reduce(0, Integer::sum);
         return (float) sum / arr.length;
     }
 }
@@ -54,11 +47,11 @@ class Solution {
 public class Fill {
     public static void main(String[] args) {
         int[] array = new int[10];
-        int[] EvenNumsArr = new int[10];
+        int[] evenNumsArr = new int[10];
         Solution solution = new Solution();
 
         solution.fillArray(array);
-        solution.fillArrayWithEvenNums(EvenNumsArr);
+        solution.fillArrayWithEvenNums(evenNumsArr);
 
         int max = solution.findAbsoluteNum(array, true);
         int min = solution.findAbsoluteNum(array, false);
@@ -66,6 +59,5 @@ public class Fill {
         String avgRes = new DecimalFormat("#0.00").format(average);
 
         System.out.printf("\nМаксимальное значение: %d \nМинимальное значение: %d \nСреднее значение: %s", max, min, avgRes);
-        System.out.printf("\n" + Arrays.toString(EvenNumsArr));
     }
 }
