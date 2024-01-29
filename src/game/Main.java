@@ -4,7 +4,6 @@ import java.util.Random;
 import java.util.Scanner;
 
 class Solution {
-
     public void guessNumber () {
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
